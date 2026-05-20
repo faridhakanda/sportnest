@@ -23,7 +23,8 @@ const Navbar = () => {
             <div className='flex space-x-3'>
                 <Link href={'/'}>Home</Link>
                 <Link href={'/add-facility'}>Add Facility</Link>
-                <Link href={'/facilities'}>Facility</Link>
+                <Link href={'/facilities'}>All Facility</Link>
+                <Link href={'/my-facility'}>My Facility</Link>
                 <Link href={'/contact'}>Contact</Link>
                 {user ? 
                     <div className='flex space-x-3'>
