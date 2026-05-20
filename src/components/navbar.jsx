@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { IoMdMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
+import NavLink from "./navlink";
 
 const Navbar = () => {
   const [isShowMenu, setIsShowMenu] = useState(true);
@@ -60,22 +61,22 @@ const Navbar = () => {
         <div className="hidden md:flex space-x-3">
           {user ? (
             <div className="flex space-x-3">
-              <Link href={"/"}>Home</Link>
-              <Link href={"/facilities"}>All Facility</Link>
-              <Link href={"/add-facility"}>Add Facility</Link>
-              <Link href={"/my-facility"}>My Facility</Link>
-              <Link href={"/profile"}>{user?.name || "Profile"}</Link>
-              <Link onClick={handleLogout} href={"/login"}>
+              <NavLink href={"/"}>Home</NavLink>
+              <NavLink href={"/facilities"}>All Facility</NavLink>
+              <NavLink href={"/add-facility"}>Add Facility</NavLink>
+              <NavLink href={"/my-facility"}>My Facility</NavLink>
+              <NavLink href={"/profile"}>{user?.name || "Profile"}</NavLink>
+              <NavLink onClick={handleLogout} href={"/login"}>
                 Logout
-              </Link>
+              </NavLink>
             </div>
           ) : (
             <div className="space-x-3">
-              <Link href={"/"}>Home</Link>
-              <Link href={"/facilities"}>All Facility</Link>
-              <Link href={"/add-facility"}>Add Facility</Link>
-              <Link href={"/login"}>Login</Link>
-              <Link href={"/signup"}>SignUp</Link>
+              <NavLink href={"/"}>Home</NavLink>
+              <NavLink href={"/facilities"}>All Facility</NavLink>
+              <NavLink href={"/add-facility"}>Add Facility</NavLink>
+              <NavLink href={"/login"}>Login</NavLink>
+              <NavLink href={"/signup"}>SignUp</NavLink>
             </div>
           )}
         </div>
@@ -90,46 +91,46 @@ const Navbar = () => {
            {user ? (
           <div className="space-y-3 font-bold">
             <li className="">
-              <Link onClick={handleMobileMenu} href={"/"}>Home</Link>
+              <NavLink onClick={handleMobileMenu} href={"/"}>Home</NavLink>
             </li>
             <li>
-              <Link onClick={handleMobileMenu} href={"/facilities"}>All Facility</Link>
+              <NavLink onClick={handleMobileMenu} href={"/facilities"}>All Facility</NavLink>
             </li>
             <li>
-              <Link onClick={handleMobileMenu} href={"/add-facility"}>Add Facility</Link>
+              <NavLink onClick={handleMobileMenu} href={"/add-facility"}>Add Facility</NavLink>
             </li>
             <li>
-              <Link onClick={handleMobileMenu} href={"/my-facility"}>My Facility</Link>
+              <NavLink onClick={handleMobileMenu} href={"/my-facility"}>My Facility</NavLink>
             </li>
             <li>
-              <Link onClick={handleMobileMenu} href={"/profile"}>{user?.name || "Profile"}</Link>
+              <NavLink onClick={handleMobileMenu} href={"/profile"}>{user?.name || "Profile"}</NavLink>
             </li>
             <li>
-              <Link onClick={ async () => {
+              <NavLink onClick={ async () => {
                 setIsMobileNavbar(!isMobileNavbar),
                 setIsShowMenu(!isShowMenu),
                 await authClient.signOut()
               }} href={"/login"}>
                 Logout
-              </Link>
+              </NavLink>
             </li>
           </div>
         ) : (
           <div className="space-y-3 font-bold ">
             <li >
-              <Link onClick={handleMobileMenu} href={"/"}>Home</Link>
+              <NavLink onClick={handleMobileMenu} href={"/"}>Home</NavLink>
             </li>
             <li>
-              <Link onClick={handleMobileMenu} href={"/facilities"}>All Facility</Link>
+              <NavLink onClick={handleMobileMenu} href={"/facilities"}>All Facility</NavLink>
             </li>
             <li>
-              <Link onClick={handleMobileMenu} href={"/add-facility"}>Add Facility</Link>
+              <NavLink onClick={handleMobileMenu} href={"/add-facility"}>Add Facility</NavLink>
             </li>
             <li>
-              <Link onClick={handleMobileMenu} href={"/login"}>Login</Link>
+              <NavLink onClick={handleMobileMenu} href={"/login"}>Login</NavLink>
             </li>
             <li>
-              <Link onClick={handleMobileMenu} href={"/signup"}>SignUp</Link>
+              <NavLink onClick={handleMobileMenu} href={"/signup"}>SignUp</NavLink>
             </li>
           </div>
         )}
