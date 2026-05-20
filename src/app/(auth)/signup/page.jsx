@@ -43,7 +43,7 @@ const SignUpPage = () => {
   }
   return (
     <div className="mx-auto   my-4 px-2     w-sm sm:w-md md:w-lg ">
-      <div className="border-1  mx-2 my-1 px-1  rounded-md border-slate-50 shadow-md">
+      <div className="border-1 mx-2 my-1 px-2  rounded-md border-slate-50 shadow-md">
         <Form
           className="flex my-auto px-2 pt-4 pb-1  flex-col gap-4"
           onSubmit={onSubmit}
@@ -108,7 +108,7 @@ const SignUpPage = () => {
             <FieldError />
           </TextField>
           <div className="flex gap-2">
-            <Button className={" w-full rounded-md"} type="submit">
+            <Button className={" w-full font-bold text-xl rounded-md"} type="submit">
               SignUp
             </Button>
           </div>
@@ -123,7 +123,7 @@ const SignUpPage = () => {
           </div>
           <Button
             onClick={handleGoogle}
-            className={"flex gap-4 items-center  w-full rounded-md"}
+            className={"flex gap-4 items-center font-bold w-full rounded-md"}
             variant="outline"
             type="submit"
           >
@@ -131,7 +131,7 @@ const SignUpPage = () => {
             Google
           </Button>
           <div className="flex text-center items-center mx-auto justify-center space-x-3 mb-2">
-            <h2>Already have an account? </h2>
+            <p className="text-[#647489]">Already have an account? </p>
             <Link className="text-blue-500 font-bold" href={"/login"}>
               Login
             </Link>

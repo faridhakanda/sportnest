@@ -87,7 +87,7 @@ const LoginPage = () => {
             <FieldError />
           </TextField>
           <div className="flex gap-2">
-            <Button className={" w-full rounded-md"} type="submit">
+            <Button className={" w-full rounded-md font-bold text-xl"} type="submit">
               Login
             </Button>
           </div>
@@ -102,7 +102,7 @@ const LoginPage = () => {
           </div>
           <Button
             onClick={handleGoogle}
-            className={"flex gap-4 items-center  w-full rounded-md"}
+            className={"flex gap-4 items-center font-bold w-full rounded-md"}
             variant="outline"
             type="submit"
           >
@@ -110,7 +110,7 @@ const LoginPage = () => {
             Google
           </Button>
           <div className="flex text-center items-center mx-auto justify-center space-x-3 mb-2">
-            <h2>Don't have an account? </h2>
+            <p className="text-[#647489]">Don't have an account? </p>
             <Link className="text-blue-500 font-bold" href={"/signup"}>
               SignUp
             </Link>
