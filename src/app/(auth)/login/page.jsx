@@ -40,8 +40,8 @@ const LoginPage = () => {
     });
   }
   return (
-    <div className="mx-auto   my-4 px-2     w-sm sm:w-md md:w-lg ">
-      <div className="border-1  mx-2 my-1 px-1  rounded-md border-slate-50 shadow-md">
+    <div className="mx-auto   my-4 px-2     max-w-sm sm:max-w-md md:max-w-lg ">
+      <div className="border-1  mx-2 my-1 px-1  rounded-md border-slate-100 shadow-sm">
         <Form
           className="flex my-auto px-2 pt-4 pb-1  flex-col gap-4"
           onSubmit={onSubmit}

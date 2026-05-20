@@ -14,8 +14,8 @@ const Navbar = () => {
     setIsMobileNavbar(!isMobileNavbar);
   }
   const handleMobileMenu = () => {
-    setIsMobileNavbar(true);
-    setIsShowMenu(true);
+    setIsMobileNavbar(!isMobileNavbar);
+    setIsShowMenu(!isShowMenu);
   }
 
 
@@ -27,6 +27,12 @@ const Navbar = () => {
   const handleLogout = async () => {
     await authClient.signOut();
   };
+
+//   const handleLogoutAndMenu = () => {
+    
+//     handleMobileMenu,
+//     handleLogout
+//   }
   return (
     <div>
       <div className="flex justify-between md:justify-around items-center bg-slate-50 px-4 md:px-2 py-2 shadow-sm">
@@ -82,44 +88,48 @@ const Navbar = () => {
         <div className="flex md:hidden bg-slate-100 my-2 w-64 mx-2 list-none px-4 py-4">
           
            {user ? (
-          <div className="">
+          <div className="space-y-3 font-bold">
             <li className="">
               <Link onClick={handleMobileMenu} href={"/"}>Home</Link>
             </li>
             <li>
-              <Link href={"/facilities"}>All Facility</Link>
+              <Link onClick={handleMobileMenu} href={"/facilities"}>All Facility</Link>
             </li>
             <li>
-              <Link href={"/add-facility"}>Add Facility</Link>
+              <Link onClick={handleMobileMenu} href={"/add-facility"}>Add Facility</Link>
             </li>
             <li>
-              <Link href={"/my-facility"}>My Facility</Link>
+              <Link onClick={handleMobileMenu} href={"/my-facility"}>My Facility</Link>
             </li>
             <li>
-              <Link href={"/profile"}>{user?.name || "Profile"}</Link>
+              <Link onClick={handleMobileMenu} href={"/profile"}>{user?.name || "Profile"}</Link>
             </li>
             <li>
-              <Link onClick={handleLogout} href={"/login"}>
+              <Link onClick={ async () => {
+                setIsMobileNavbar(!isMobileNavbar),
+                setIsShowMenu(!isShowMenu),
+                await authClient.signOut()
+              }} href={"/login"}>
                 Logout
               </Link>
             </li>
           </div>
         ) : (
           <div className="space-y-3 font-bold ">
-            <li>
-              <Link href={"/"}>Home</Link>
+            <li >
+              <Link onClick={handleMobileMenu} href={"/"}>Home</Link>
             </li>
             <li>
-              <Link href={"/facilities"}>All Facility</Link>
+              <Link onClick={handleMobileMenu} href={"/facilities"}>All Facility</Link>
             </li>
             <li>
-              <Link href={"/add-facility"}>Add Facility</Link>
+              <Link onClick={handleMobileMenu} href={"/add-facility"}>Add Facility</Link>
             </li>
             <li>
-              <Link href={"/login"}>Login</Link>
+              <Link onClick={handleMobileMenu} href={"/login"}>Login</Link>
             </li>
             <li>
-              <Link href={"/signup"}>SignUp</Link>
+              <Link onClick={handleMobileMenu} href={"/signup"}>SignUp</Link>
             </li>
           </div>
         )}
