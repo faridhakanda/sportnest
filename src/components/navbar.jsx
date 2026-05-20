@@ -58,7 +58,7 @@ const Navbar = () => {
           )}
         </div>
         {/* Desktop Navbar */}
-        <div className="hidden md:flex space-x-3">
+        <div className="hidden md:flex space-x-3 font-bold">
           {user ? (
             <div className="flex space-x-3">
               <NavLink href={"/"}>Home</NavLink>
@@ -86,10 +86,10 @@ const Navbar = () => {
       {isMobileNavbar ?  
         <div>
         </div>:
-        <div className="flex md:hidden bg-slate-100 my-2 w-64 mx-2 list-none px-4 py-4">
+        <div className="flex font-bold md:hidden bg-slate-100 my-2 w-64 mx-2 list-none px-4 py-4">
           
            {user ? (
-          <div className="space-y-3 font-bold">
+          <div className="space-y-3 ">
             <li className="">
               <NavLink onClick={handleMobileMenu} href={"/"}>Home</NavLink>
             </li>
@@ -116,7 +116,7 @@ const Navbar = () => {
             </li>
           </div>
         ) : (
-          <div className="space-y-3 font-bold ">
+          <div className="space-y-3  ">
             <li >
               <NavLink onClick={handleMobileMenu} href={"/"}>Home</NavLink>
             </li>
