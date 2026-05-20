@@ -21,18 +21,25 @@ const Navbar = () => {
                 <Link href={'/'}>SportNest</Link>
             </div>
             <div className='flex space-x-3'>
-                <Link href={'/'}>Home</Link>
+                {/* <Link href={'/'}>Home</Link>
                 <Link href={'/add-facility'}>Add Facility</Link>
                 <Link href={'/facilities'}>All Facility</Link>
                 <Link href={'/my-facility'}>My Facility</Link>
-                <Link href={'/contact'}>Contact</Link>
+                <Link href={'/contact'}>Contact</Link> */}
                 {user ? 
                     <div className='flex space-x-3'>
+                        <Link href={'/'}>Home</Link>
+                        <Link href={'/add-facility'}>Add Facility</Link>
+                        <Link href={'/facilities'}>All Facility</Link>
+                        <Link href={'/my-facility'}>My Facility</Link>
                         <Link href={'/profile'}>{user?.name || "Profile"}</Link>
                         <Link onClick={handleLogout} href={'/login'}>Logout</Link>
                     </div>
                     :
                     <div className='space-x-3'>
+                        <Link href={'/'}>Home</Link>
+                        <Link href={'/add-facility'}>Add Facility</Link>
+                        <Link href={'/facilities'}>All Facility</Link>
                         <Link href={'/login'}>Login</Link>
                         <Link href={'/signup'}>SignUp</Link>
                     </div>
