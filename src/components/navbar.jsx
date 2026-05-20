@@ -18,7 +18,8 @@ const Navbar = () => {
     return (
         <div className='flex justify-around items-center bg-slate-50 p-2 shadow-sm'>
             <div>
-                <Link href={'/'}>SportNest</Link>
+                
+                <Link href={'/'} className='font-bold text-3xl italic md:text-4xl bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent'><span className='text-yellow-700'>S</span>port<span className='text-pink-700'>N</span>est</Link>
             </div>
             <div className='flex space-x-3'>
                 {/* <Link href={'/'}>Home</Link>

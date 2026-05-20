@@ -1,3 +1,4 @@
+import BannerPage from "@/components/banner";
 import { getAllSportFacilities } from "@/lib/data";
 import { Button } from "@heroui/react";
 import Image from "next/image";
@@ -10,7 +11,7 @@ export default async function Home() {
     <div>
         <h2>SportNest project for frontend!</h2>
         <p>{facilities.length}</p>
-
+        <BannerPage />
         <div>
             <div className='mx-auto my-4 grid grid-cols-3 max-w-6xl justify-center'>
                 {facilities.map(facility => 
