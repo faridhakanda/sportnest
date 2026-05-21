@@ -7,9 +7,10 @@ export const getAllSportFacilities = async() => {
     return data;
 }
 export const getFacilityDetailsById = async(id) => {
-    const { token } = await auth.api.getToken({
+    const tokenResponse = await auth.api.getToken({
         headers: await headers()
-    })
+    });
+    const token = tokenResponse?.token;
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilities/${id}`, {
         method: 'GET',
         headers: {
