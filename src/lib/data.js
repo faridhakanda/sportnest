@@ -10,10 +10,13 @@ export const getAllSportFacilities = async() => {
 }
 //this api for show by facility id with details
 export const getFacilityDetailsById = async(id) => {
-    const tokenResponse = await auth.api.getToken({
+    // const tokenResponse = await auth.api.getToken({
+    //     headers: await headers()
+    // });
+    // const token = tokenResponse?.token;
+    const { token } = await auth.api.getToken({
         headers: await headers()
-    });
-    const token = tokenResponse?.token;
+    })
     console.log('get token detila: ', token);
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilities/${id}`, {
         method: 'GET',
