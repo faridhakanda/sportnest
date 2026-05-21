@@ -34,11 +34,13 @@ const AddFacility = () => {
     const { data: tokenData } = await authClient.token()
     const session = await authClient.getSession();
     const user = session?.data?.user;// || "Anonymous";
+    const userId = user?.id;
     const userName = user?.name;
     const userEmail = user?.email;
     console.log(session, 'session data in add facility page!');
     const addFacility = {
         ...facility,
+        userId: userId,
         userName: userName,
         userEmail: userEmail,
     }

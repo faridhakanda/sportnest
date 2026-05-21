@@ -33,9 +33,10 @@ const Facilities = async () => {
                 <div className='mx-auto my-4 grid grid-cols-1 md:grid-cols-3 max-w-6xl justify-center'>
                 {facilities.map(facility => 
                     <div className='bg-slate-100 shadow-md mx-4 rounded-md md:mx-2 my-2 px-2 py-2' key={facility._id}>
-                        <Image src={facility.facility_image} alt={facility.facility_name} width={400} height={400} />
+                        <Image className='w-full' src={facility.facility_image} alt={facility.facility_name} width={400} height={400} />
                         <h2>Facility name: {facility.facility_name}</h2>
                         <p>Price: ${facility.facility_price_per_hour}</p>
+                        <p>Owner Id: {facility.userId}</p>
                         <p>Owner Name: {facility.userName}</p>
                         <p>Owner email: {facility.userEmail}</p>
                         <p>{facility.facility_description}</p>
