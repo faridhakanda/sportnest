@@ -1,3 +1,4 @@
+import { BookingDelete } from "@/components/bookingDel";
 import { auth } from "@/lib/auth";
 import { getMyBookingFacility } from "@/lib/data";
 import { Button } from "@heroui/react";
@@ -38,7 +39,8 @@ const Booking = async () => {
                             width={400}
                             height={400}
                           />
-                          <div className="items-center mx-auto justify-center">
+                          <div className="items-center mx-auto justify-center px-2">
+                            <p>Booking Id: {facility._id}</p>
                             <h2>Facility name: {facility.facility_name}</h2>
                             <p>Price: ${facility.facility_price_per_hour}</p>
                             <p>Owner Id: {facility.userId}</p>
@@ -49,29 +51,16 @@ const Booking = async () => {
                         </div>
         
                         <div className="flex justify-between">
-                          <Button
-                            className={
-                              "rounded-md bg-red-500 mx-auto w-full md:w-96 my-2 text-white font-bold text-lg"
-                            }
-                            variant="outline"
-                          >
-                            Delete
-                          </Button>
-                          {/* <Button
-                            className={
-                              "rounded-md w-24 bg-cyan-500 mx-2 my-2 text-white font-bold text-lg"
-                            }
-                            variant="outline"
-                          >
-                            Edit
-                          </Button> */}
+                          
+                          <BookingDelete bookingId={facility._id} />
+                          
                         </div>
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <div>
-                    <h2>Not found any of your added facility!</h2>
+                  <div className="mx-auto my-auto flex justify-center items-centerd">
+                    <h2 className="font-bold text-xl my-8">Not found any of your added facility!</h2>
                   </div>
                 )}
       </div>

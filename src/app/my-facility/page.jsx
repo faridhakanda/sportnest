@@ -6,6 +6,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@heroui/react";
+import { MyFacilityDelete } from "@/components/myFacilityDel";
+import { MyFacilityEdit } from "@/components/myFacilityEdit";
 
 const MyBooking = async () => {
   const session = await auth.api.getSession({
@@ -54,22 +56,24 @@ const MyBooking = async () => {
                 </div>
 
                 <div className="flex justify-between">
-                  <Button
+                  {/* <Button
                     className={
                       "rounded-md bg-red-500 mx-2 my-2 text-white font-bold text-lg"
                     }
                     variant="outline"
                   >
                     Delete
-                  </Button>
-                  <Button
+                  </Button> */}
+                  <MyFacilityDelete userId={facility.userId} />
+                  <MyFacilityEdit facility={facility} />
+                  {/* <Button
                     className={
                       "rounded-md w-24 bg-cyan-500 mx-2 my-2 text-white font-bold text-lg"
                     }
                     variant="outline"
                   >
                     Edit
-                  </Button>
+                  </Button> */}
                 </div>
               </div>
             ))}

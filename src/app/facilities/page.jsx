@@ -13,9 +13,9 @@ const Facilities = async () => {
   console.log(session, "session in page!");
   return (
     <div className="">
-      <h2 className="mx-auto w-3/4 pl-1 md:px-6 pt-4">All Facilities</h2>
+      <h2 className="mx-auto text-center font-bold text-2xl pl-1 mt-4 text-[#647489] ">All Facilities</h2>
       {facilities.length > 0 ? (
-        <div className="mx-auto my-4 grid grid-cols-1 md:grid-cols-3 max-w-6xl justify-center">
+        <div className="mx-auto mb-4 grid grid-cols-1 md:grid-cols-3 max-w-6xl justify-center">
           {facilities.map((facility) => (
             <div
               className="bg-slate-100 shadow-md mx-4 rounded-md md:mx-2 my-2 px-2 py-2"

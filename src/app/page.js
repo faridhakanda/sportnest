@@ -8,9 +8,8 @@ export default async function Home() {
     const facilities = await getAllSportFacilities();
     console.log(facilities, 'new project!')
   return (
-    <div>
-        <h2>SportNest project for frontend!</h2>
-        <p>{facilities.length}</p>
+    <div className="mx-auto justify-center">
+        
         <BannerPage />
         <div>
             <div className='mx-auto my-4 grid grid-cols-1 md:grid-cols-3 max-w-6xl justify-center'>
