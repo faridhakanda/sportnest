@@ -18,7 +18,7 @@ export const getFacilityDetailsById = async(id) => {
         headers: await headers()
     })
     console.log('get token detila: ', token);
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilities/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilityDetails/${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
