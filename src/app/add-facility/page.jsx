@@ -21,17 +21,37 @@ const AddFacility = () => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const facility = Object.fromEntries(formData.entries());
-    console.log("user signup data: ", user);
-    const { data, error } = await authClient.signUp.email({
-        facility_name: facility?.facility_name,
-        facility_type: facility?.facility_type,
-        facility_image: facility?.facility_image,
-        facility_location: facility?.facility_location,
-        facility_price_per_hour: facility?.facility_price_per_hour,
-        facility_capacity: facility?.facility_capacity,
-        facility_available_slot: facility?.facility_available_slot,
-        facility_description: facility?.facility_description
-    })
+    
+    // facility_name: facility?.facility_name,
+    //     facility_type: facility?.facility_type,
+    //     facility_image: facility?.facility_image,
+    //     facility_location: facility?.facility_location,
+    //     facility_price_per_hour: facility?.facility_price_per_hour,
+    //     facility_capacity: facility?.facility_capacity,
+    //     facility_available_slot: facility?.facility_available_slot,
+    //     facility_description: facility?.facility_description
+    console.log("user facility added data: ", facility);
+    const { data: tokenData } = await authClient.token()
+    const session = await authClient.getSession();
+    const user = session?.data?.user;// || "Anonymous";
+    const userName = user?.name;
+    const userEmail = user?.email;
+    console.log(session, 'session data in add facility page!');
+    const addFacility = {
+        ...facility,
+        userName: userName,
+        userEmail: userEmail,
+    }
+    console.log('add facility payload: ', addFacility);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilities`,{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            authorization: `Bearer ${tokenData?.token}`
+        },
+        body: JSON.stringify(addFacility)
+    });
+    const data = await res.json();
     if (data) {
         toast.success('Added Facility successfully!');
         redirect('/');

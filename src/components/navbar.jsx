@@ -24,7 +24,14 @@ const Navbar = () => {
   console.log(session, "session data");
   const user = session?.user;
   console.log(user, "user info after login!");
-
+  //console.log(user.name, user.email, 'name and email')
+//   console.log(user?.name, 'current user name');
+//   console.log(user?.email, 'current user email');
+  
+//   const {data: session} = authClient.getSession();
+//   console.log(session, 'ses');
+//   const user = session?.user;
+//   console.log(session, 'sessino');
   const handleLogout = async () => {
     await authClient.signOut();
   };
