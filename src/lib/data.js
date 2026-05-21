@@ -15,7 +15,8 @@ export const getFacilityDetailsById = async(id) => {
         headers: {
             'Content-Type': 'application/json',
             authorization: `Bearer ${token}`
-        }
+        },
+        cache: 'no-store'
     });
     const data = await res.json();
     return data;
