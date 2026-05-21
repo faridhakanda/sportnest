@@ -21,9 +21,9 @@ const Navbar = () => {
 
 
   const { data: session } = authClient.useSession();
-  console.log(session, "session data");
+  console.log(session, "session data it is coming from navbar; ");
   const user = session?.user;
-  console.log(user, "user info after login!");
+  console.log(user, "user info after login! coming navbar");
   //console.log(user.name, user.email, 'name and email')
 //   console.log(user?.name, 'current user name');
 //   console.log(user?.email, 'current user email');

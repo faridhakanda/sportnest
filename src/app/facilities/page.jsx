@@ -9,8 +9,8 @@ const Facilities = async () => {
   const facilities = await getAllSportFacilities();
   console.log(facilities);
   //const { name, price, } = facilities;
-  const session = await authClient.getSession();
-  console.log(session, "session in page!");
+//   const session = await authClient.getSession();
+//   console.log(session, "session in page!");
   return (
     <div className="">
       <h2 className="mx-auto text-center font-bold text-2xl pl-1 mt-4 text-[#647489] ">All Facilities</h2>

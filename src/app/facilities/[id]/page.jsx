@@ -1,14 +1,17 @@
 import BookingCard from "@/components/bookingCard";
 import { auth } from "@/lib/auth";
 //import { auth } from "@/lib/auth";
+//import { auth } from "@/lib/auth";
 
 import { getFacilityDetailsById } from "@/lib/data";
 import { Button } from "@heroui/react";
+import { headers } from "next/headers";
 //import { headers } from "next/headers";
 
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { toast } from "react-toastify";
 
 const FacilityDetailsById = async ({ params }) => {
   const { id } = await params;
@@ -16,35 +19,42 @@ const FacilityDetailsById = async ({ params }) => {
   //const facilityDetails = await getFallbackRouteParams()
   const facility = await getFacilityDetailsById(id);
   console.log(facility, "facility details!");
-
-//   const tokenResponse = await auth.api.getToken({
-//     headers: await headers(),
-//   });
-//   const token = tokenResponse?.token;
-//   const token = await auth.api.getSession({
+  
+  
+  // now make new api
+  
+//   const { token } = await auth.api.getSession({
 //     headers: await headers()
 //   })
-    
-//   const { token } = await auth.api.token()
-//   const res = await fetch(
-//     `${process.env.NEXT_PUBLIC_SERVER_URL}/facilities/${id}`,
-//     {
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json",
-//         authorization: `Bearer ${token}`,
-//       },
-//       //cache: 'no-store'
-//     },
-//   );
+//   const tokenResponse = await auth.api.getToken({
+//     headers: await headers()
+//   })
+//   const { token } = tokenResponse?.token;
+//   const sessionData = await auth.api.getSession({
+//     headers: await headers()
+//   });
+//   const token = sessionData?.session?.token;
+//   if (!token) {
+//     return (
+//         toast.error('Token not valid!')
+//     )
+//   }
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilityDetails/${id}`, {
+//     method: 'GET',
+//     headers: {
+//         'Content-Type': 'application/json',
+//         authorization: `Bearer ${token}`
+//     }
+//   });
 //   const facility = await res.json();
-  //return data;
+  
+
 
   return (
     <div className="mx-auto">
       <div className="bg-blue-200 w-96 mx-auto my-2  rounded-md">
         <Image
-          className="rounded-ss-md rounded-se-md"
+          className="w-full rounded-ss-md rounded-se-md"
           src={facility.facility_image}
           alt={facility.facility_name}
           width={400}
@@ -56,7 +66,7 @@ const FacilityDetailsById = async ({ params }) => {
           <p>Price: ${facility.facility_price_per_hour}</p>
           <p>Owner Name: {facility.userName}</p>
           <p>Owner email: {facility.userEmail}</p>
-          <p>{facility.facility_description}</p>
+          <p>Facility description: {facility.facility_description}</p>
         </div>
         <BookingCard facility={facility} />
         <Link className="" href={"/"}>
