@@ -21,7 +21,7 @@ const FacilityDetailsById = async ({ params }) => {
   console.log(facility, "facility details!");
   
   
-  // now make new api
+  
   
 //   const { token } = await auth.api.getSession({
 //     headers: await headers()
