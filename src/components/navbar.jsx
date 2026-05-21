@@ -71,6 +71,7 @@ const Navbar = () => {
               <NavLink href={"/"}>Home</NavLink>
               <NavLink href={"/facilities"}>All Facility</NavLink>
               <NavLink href={"/add-facility"}>Add Facility</NavLink>
+              <NavLink href={"/booking"}>Booking</NavLink>
               <NavLink href={"/my-facility"}>My Facility</NavLink>
               <NavLink href={"/profile"}>{user?.name || "Profile"}</NavLink>
               <NavLink onClick={handleLogout} href={"/login"}>
@@ -105,6 +106,9 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink onClick={handleMobileMenu} href={"/add-facility"}>Add Facility</NavLink>
+            </li>
+            <li>
+              <NavLink onClick={handleMobileMenu} href={"/booking"}>Booking</NavLink>
             </li>
             <li>
               <NavLink onClick={handleMobileMenu} href={"/my-facility"}>My Facility</NavLink>
