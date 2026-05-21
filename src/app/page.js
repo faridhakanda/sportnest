@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default async function Home() {
     const facilities = await getAllSportFacilities();
-    //console.log(facilities, 'new project!')
+    console.log(facilities, 'new project!')
   return (
     <div>
         <h2>SportNest project for frontend!</h2>

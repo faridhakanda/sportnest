@@ -24,7 +24,8 @@ const LoginPage = () => {
     console.log("user login data: ", user);
     const { data, error } = await authClient.signIn.email({
         email: user?.email,
-        password: user?.password
+        password: user?.password,
+        rememberMe: true,
     })
     if (data) {
         toast.success('User logged in successfully!');

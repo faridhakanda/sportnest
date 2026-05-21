@@ -5,7 +5,7 @@ import React from 'react';
 
 const Facilities = async () => {
     const facilities = await getAllSportFacilities();
-    //console.log(facilities);
+    console.log(facilities);
     //const { name, price, } = facilities;
     return (
         <div className=''>
