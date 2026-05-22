@@ -3,6 +3,12 @@ import { auth } from "./auth";
 import { authClient } from "./auth-client";
 
 // this api for all facility data show
+
+export const getLimitedFacilities = async() => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/limited-facilities`);
+    const data = await res.json();
+    return data;
+}
 export const getAllSportFacilities = async() => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilities`);
     const data = await res.json();

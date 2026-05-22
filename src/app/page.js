@@ -1,20 +1,29 @@
 import AllFacilityCard from "@/components/allFacilityCard";
 import BannerPage from "@/components/banner";
-import { getAllSportFacilities } from "@/lib/data";
+import { getAllSportFacilities, getLimitedFacilities } from "@/lib/data";
 import { Button } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function Home() {
-  const facilities = await getAllSportFacilities();
+  const facilities = await getLimitedFacilities();
   console.log(facilities, "new project!");
   return (
     <div className="mx-auto justify-center">
       <BannerPage />
-
+      
       {/* All Facility */}
+      <div className="flex justify-between  mx-2 rounded-md px-2 items-center">
+        <h2 className="text-xl font-bold text-[#647489]">Explore more facility</h2>
+        <Link href={'/facilities'}>
+            <Button className={'rounded-md font-bold'}>Explore More</Button>
+        </Link>
+        
+      </div>
+      
       {facilities.length > 0 ? (
         <div className="mx-auto mb-4 grid grid-cols-1  max-w-6xl justify-center">
+          
           {facilities.map((facility) => (
             <div key={facility._id}>
               <div className="mx-auto">
