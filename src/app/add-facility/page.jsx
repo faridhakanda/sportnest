@@ -30,21 +30,21 @@ const AddFacility = () => {
     //     facility_capacity: facility?.facility_capacity,
     //     facility_available_slot: facility?.facility_available_slot,
     //     facility_description: facility?.facility_description
-    console.log("user facility added data: ", facility);
+    //console.log("user facility added data: ", facility);
     const { data: tokenData } = await authClient.token()
     const session = await authClient.getSession();
     const user = session?.data?.user;// || "Anonymous";
     const userId = user?.id;
     const userName = user?.name;
     const userEmail = user?.email;
-    console.log(session, 'session data in add facility page!');
+    //console.log(session, 'session data in add facility page!');
     const addFacility = {
         ...facility,
         userId: userId,
         userName: userName,
         userEmail: userEmail,
     }
-    console.log('add facility payload: ', addFacility);
+    //console.log('add facility payload: ', addFacility);
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilities`,{
         method: 'POST',
         headers: {

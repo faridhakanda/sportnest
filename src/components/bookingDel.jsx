@@ -6,7 +6,7 @@ import {AlertDialog, Button} from "@heroui/react";
 import { redirect } from "next/navigation";
 
 export function BookingDelete({ bookingId }) {
-    console.log("booking id is: ", bookingId);
+    //console.log("booking id is: ", bookingId);
     const handleDelete = async() => {
         const { data: tokenData } = await authClient.token()
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booking/${bookingId}`, {
@@ -17,7 +17,7 @@ export function BookingDelete({ bookingId }) {
             }
         })
         const data = await res.json();
-        console.log(data, 'delete data!');
+        //console.log(data, 'delete data!');
         redirect('/booking');
     }
   return (

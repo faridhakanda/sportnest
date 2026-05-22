@@ -23,7 +23,7 @@ export const getFacilityDetailsById = async(id) => {
     const { token } = await auth.api.getToken({
         headers: await headers()
     })
-    console.log('get token detila: ', token);
+    //console.log('get token detila: ', token);
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilityDetails/${id}`, {
         method: 'GET',
         headers: {
@@ -47,7 +47,7 @@ export const getMyAllAddedFacility = async(userId) => {
     const { token } = await auth.api.getToken({
         headers: await headers()
     })
-    console.log(token, 'token');
+    //console.log(token, 'token');
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-facility/${userId}`, {
         method: 'GET',
         headers: {

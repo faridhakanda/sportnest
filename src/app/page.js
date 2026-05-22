@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default async function Home() {
   const facilities = await getLimitedFacilities();
-  console.log(facilities, "new project!");
+  //console.log(facilities, "new project!");
   return (
     <div className="mx-auto justify-center">
       <BannerPage />

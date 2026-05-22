@@ -9,7 +9,7 @@ import React from "react";
 
 const Facilities = async () => {
   const facilities = await getAllSportFacilities();
-  console.log(facilities);
+  //console.log(facilities);
   //const { name, price, } = facilities;
 //   const session = await authClient.getSession();
 //   console.log(session, "session in page!");

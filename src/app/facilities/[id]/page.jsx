@@ -17,10 +17,10 @@ import { toast } from "react-toastify";
 
 const FacilityDetailsById = async ({ params }) => {
   const { id } = await params;
-  console.log("facility id: ", id);
+  //console.log("facility id: ", id);
   //const facilityDetails = await getFallbackRouteParams()
   const facility = await getFacilityDetailsById(id);
-  console.log(facility, "facility details!");
+  //console.log(facility, "facility details!");
 
   //   const { token } = await auth.api.getSession({
   //     headers: await headers()

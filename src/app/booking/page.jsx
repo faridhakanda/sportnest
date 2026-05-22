@@ -15,12 +15,12 @@ const Booking = async () => {
   const session = await auth.api.getSession({
     headers: await headers(),
   });
-  console.log("my booking facility: ", session);
+  //console.log("my booking facility: ", session);
   const userInfo = session?.user;
   const userId = userInfo.id;
-  console.log(userId, "user id of booking page!");
+  //console.log(userId, "user id of booking page!");
   const facilities = await getMyBookingFacility(userId);
-  console.log(facilities, "my booking in booking page!");
+  //console.log(facilities, "my booking in booking page!");
   return (
     <div>
       <h2 className="font-bold mt-4 text-2xl text-[#647489] text-center">
