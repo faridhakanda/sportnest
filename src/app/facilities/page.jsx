@@ -1,4 +1,6 @@
-import { authClient } from "@/lib/auth-client";
+import AllFacilityCard from "@/components/allFacilityCard";
+// import BookCard from "@/components/bCard";
+// import { authClient } from "@/lib/auth-client";
 import { getAllSportFacilities } from "@/lib/data";
 import { Button } from "@heroui/react";
 import Image from "next/image";
@@ -15,41 +17,39 @@ const Facilities = async () => {
     <div className="">
       <h2 className="mx-auto text-center font-bold text-2xl pl-1 mt-4 text-[#647489] ">All Facilities</h2>
       {facilities.length > 0 ? (
-        <div className="mx-auto mb-4 grid grid-cols-1 md:grid-cols-3 max-w-6xl justify-center">
-          {facilities.map((facility) => (
-            <div
-              className="bg-slate-100 shadow-md mx-4 rounded-md md:mx-2 my-2 px-2 py-2"
-              key={facility._id}
-            >
-              <Image
-                className="w-full"
-                src={facility.facility_image}
-                alt={facility.facility_name}
-                width={400}
-                height={400}
-              />
-              <h2>Facility name: {facility.facility_name}</h2>
-              <p>Price: ${facility.facility_price_per_hour}</p>
-              <p>Owner Id: {facility.userId}</p>
-              <p>Owner Name: {facility.userName}</p>
-              <p>Owner email: {facility.userEmail}</p>
-              <p>{facility.facility_description}</p>
-              <Link className="" href={`/facilities/${facility._id}`}>
-                <Button
-                  className={"rounded-md bg-blue-200 mx-2 my-2 text-[#647489]"}
-                  variant="outline"
-                >
-                  See details...
-                </Button>
-              </Link>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div>
-          <h2>Not Available any of Facility!</h2>
-        </div>
-      )}
+              <div className="mx-auto mb-4 grid grid-cols-1  max-w-6xl justify-center">
+                {facilities.map((facility) => (
+                  <div key={facility._id}>
+                   
+                    <div className="mx-auto">
+                      <div className="mx-auto mb-4 grid grid-cols-1  max-w-6xl justify-center">
+                          <div className="bg-slate-100  shadow-sm mx-4 rounded-md md:mx-2 my-2 px-2 py-2">
+                              <AllFacilityCard facility={facility} />
+                              <div className="flex my-2 justify-between">
+                                <Link className="mx-auto w-full md:w-96" href={`/facilities/${facility._id}`}>
+                                    <Button
+                                    className={"rounded-md w-full md:w-96 bg-cyan-500  my-2 text-white font-bold text-lg"}
+                                    variant="outline"
+                                    >
+                                    Booking Now
+                                    </Button>
+                                </Link>
+                                  {/* <MyFacilityDelete userId={facility.userId} />
+                                  <MyFacilityEdit facility={facility} /> */}
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="mx-auto my-auto flex justify-center items-centerd">
+                <h2 className="font-bold text-xl my-8">
+                  Not found any of your added facility!
+                </h2>
+              </div>
+            )}
     </div>
   );
 };

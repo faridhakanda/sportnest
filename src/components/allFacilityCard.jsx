@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const BookCard = ({ facility }) => {
+const AllFacilityCard = ({ facility }) => {
   return (
     <div className="grid md:flex gap-4 justify-between items-center">
       <Image
@@ -48,14 +48,14 @@ const BookCard = ({ facility }) => {
             {facility.facility_available_slot}
           </span>
         </p>
-        <p className=" my-1">
+        {/* <p className=" my-1">
           <span className="font-semibold">
             {facility.facility_description}
           </span>{" "}
-        </p>
+        </p> */}
       </div>
     </div>
   );
 };
 
-export default BookCard;
+export default AllFacilityCard;
