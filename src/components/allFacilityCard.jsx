@@ -53,6 +53,7 @@ const AllFacilityCard = ({ facility }) => {
             {facility.facility_description}
           </span>{" "}
         </p> */}
+        <input name='bookingDate'/>
       </div>
     </div>
   );

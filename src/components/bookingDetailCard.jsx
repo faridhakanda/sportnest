@@ -19,6 +19,16 @@ const BookingDetailCard = ({ facility }) => {
           <span className="text-orange-500">{facility.facility_type}</span>
         </p>
         <p>
+          <span className="text-[#647489] text-sm">Booking Date: </span>
+          <span className="font-bold text-orange-600">
+            {new Date(facility.bookDate).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </span>
+        </p>
+        <p>
           <span className="text-[#647489] text-sm">Price: </span>
           <span className="font-bold text-orange-600">
             ${facility.facility_price_per_hour}/ph

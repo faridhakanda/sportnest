@@ -1,8 +1,8 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
-import { Button } from "@heroui/react";
+import { Button, DateField, Label } from "@heroui/react";
 import { redirect, useRouter } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 const BookingCard = ({ facility }) => {
@@ -18,6 +18,10 @@ const BookingCard = ({ facility }) => {
     facility_location,
     facility_price_per_hour,
   } = facility;
+  
+  const toDay = new Date();
+  const [bookDate, setBookDate] = useState(toDay);
+
   const handleBooking = async () => {
     const { data: tokenData } = await authClient.token();
     // const session = await authClient.getSession({
@@ -38,6 +42,7 @@ const BookingCard = ({ facility }) => {
       userName: userName,
       userEmail: userEmail,
       bookingUserId: userId,
+      bookDate: new Date(bookDate),
     }; // = facility;
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booking`, {
       method: "POST",
@@ -59,6 +64,19 @@ const BookingCard = ({ facility }) => {
   
   return (
     <div>
+        <DateField 
+            onChange={setBookDate}
+            className={'w-[150px my-2'}
+            name="date"
+        >
+            <Label>Booking Date</Label>
+            <DateField.Group>
+                <DateField.Input>
+                    {(segment) => <DateField.Segment segment={segment} />}
+                </DateField.Input>
+            </DateField.Group>
+
+        </DateField>
       <Button
         onClick={handleBooking}
         className={"w-full rounded-md font-bold bg-cyan-600"}
