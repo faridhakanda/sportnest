@@ -5,6 +5,8 @@ import React, { useState } from "react";
 import { IoMdMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import NavLink from "./navlink";
+import Image from "next/image";
+import { Avatar } from "@heroui/react";
 
 const Navbar = () => {
   const [isShowMenu, setIsShowMenu] = useState(true);
@@ -65,15 +67,18 @@ const Navbar = () => {
           )}
         </div>
         {/* Desktop Navbar */}
-        <div className="hidden md:flex space-x-3 font-bold">
+        <div className="hidden md:flex space-x-3 font-bold items-center">
           {user ? (
-            <div className="flex space-x-3">
+            <div className="flex space-x-3 items-center">
               <NavLink href={"/"}>Home</NavLink>
               <NavLink href={"/facilities"}>All Facility</NavLink>
               <NavLink href={"/add-facility"}>Add Facility</NavLink>
               <NavLink href={"/booking"}>Booking</NavLink>
               <NavLink href={"/my-facility"}>My Facility</NavLink>
-              <NavLink href={"/profile"}>{user?.name || "Profile"}</NavLink>
+              {/* <NavLink href={"/profile"}>{user?.name || "Profile"}</NavLink> */}
+              <NavLink href={"/profile"}>
+                <Image src="/avatar.png" alt="avatar" width={32} height={32} />
+              </NavLink>
               <NavLink onClick={handleLogout} href={"/login"}>
                 Logout
               </NavLink>
@@ -113,9 +118,18 @@ const Navbar = () => {
             <li>
               <NavLink onClick={handleMobileMenu} href={"/my-facility"}>My Facility</NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink onClick={handleMobileMenu} href={"/profile"}>{user?.name || "Profile"}</NavLink>
+            </li> */}
+            <li>
+                <NavLink
+                 href={"/profile"}
+                 onClick={handleMobileMenu}
+                >
+                    <Image src="/avatar.png" alt="avatar" width={32} height={32} />
+                </NavLink>
             </li>
+            
             <li>
               <NavLink onClick={ async () => {
                 setIsMobileNavbar(!isMobileNavbar),
