@@ -61,7 +61,7 @@ const BookingCard = ({ facility }) => {
     <div>
       <Button
         onClick={handleBooking}
-        className={"w-full rounded-none bg-cyan-600"}
+        className={"w-full rounded-md font-bold bg-cyan-600"}
       >
         Book Now
       </Button>

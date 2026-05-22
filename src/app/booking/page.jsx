@@ -1,4 +1,7 @@
+import BookCard from "@/components/bCard";
+import BookingCard from "@/components/bookingCard";
 import { BookingDelete } from "@/components/bookingDel";
+import FacilityCard from "@/components/card";
 import { auth } from "@/lib/auth";
 import { getMyBookingFacility } from "@/lib/data";
 import { Button } from "@heroui/react";
@@ -19,9 +22,11 @@ const Booking = async () => {
   console.log(facilities, "my booking in booking page!");
   return (
     <div>
-      <h2 className="font-bold mt-4 text-2xl text-[#647489] text-center">My Booking Facility</h2>
-      
-      <div className="">
+      <h2 className="font-bold mt-4 text-2xl text-[#647489] text-center">
+        My Booking Facility
+      </h2>
+
+      {/* <div className="">
         
         
         {facilities.length > 0 ? (
@@ -63,7 +68,82 @@ const Booking = async () => {
                     <h2 className="font-bold text-xl my-8">Not found any of your added facility!</h2>
                   </div>
                 )}
-      </div>
+      </div> */}
+      {/*  */}
+      {/* <div
+                        key={facility._id}
+                        className="bg-slate-100 shadow-md mx-4 rounded-md md:mx-2 my-2 px-2 py-2"
+                      >
+                        <div className="grid md:flex gap-4 justify-between items-center">
+                          <Image
+                            className="w-full md:w-fit"
+                            src={facility.facility_image}
+                            alt={facility.facility_name}
+                            width={400}
+                            height={400}
+                          />
+                          <div className="items-center mx-auto justify-center px-2">
+                            <p>Booking Id: {facility._id}</p>
+                            <h2>Facility name: {facility.facility_name}</h2>
+                            <p>Price: ${facility.facility_price_per_hour}</p>
+                            <p>Owner Id: {facility.userId}</p>
+                            <p>Owner Name: {facility.userName}</p>
+                            <p>Owner email: {facility.userEmail}</p>
+                            <p>{facility.facility_description}</p>
+                          </div>
+                        </div>
+        
+                        <div className="flex justify-between">
+                          
+                          <BookingDelete bookingId={facility._id} />
+                          
+                        </div>
+                      </div> */}
+
+      {/* Facility detail page like card des */}
+
+      {/* {facilities.length > 0 ? (
+        <div className="mx-auto mb-4 grid grid-cols-1  max-w-6xl justify-center">
+          {facilities.map((facility) => (
+            <div key={facility._id}>
+              <FacilityCard facility={facility} />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="mx-auto my-auto flex justify-center items-centerd">
+          <h2 className="font-bold text-xl my-8">
+            Not found any of your added facility!
+          </h2>
+        </div>
+      )} */}
+
+
+      {facilities.length > 0 ? (
+        <div className="mx-auto mb-4 grid grid-cols-1  max-w-6xl justify-center">
+          {facilities.map((facility) => (
+            <div key={facility._id}>
+             
+              <div className="mx-auto">
+                <div className="mx-auto mb-4 grid grid-cols-1  max-w-6xl justify-center">
+                    <div className="bg-slate-100  shadow-sm mx-4 rounded-md md:mx-2 my-2 px-2 py-2">
+                        <BookCard facility={facility} />
+                        <div className="flex my-2 justify-between">
+                            <BookingDelete bookingId={facility._id} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="mx-auto my-auto flex justify-center items-centerd">
+          <h2 className="font-bold text-xl my-8">
+            Not found any of your added facility!
+          </h2>
+        </div>
+      )}
     </div>
   );
 };

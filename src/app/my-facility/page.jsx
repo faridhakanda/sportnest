@@ -8,6 +8,9 @@ import Link from "next/link";
 import { Button } from "@heroui/react";
 import { MyFacilityDelete } from "@/components/myFacilityDel";
 import { MyFacilityEdit } from "@/components/myFacilityEdit";
+import FacilityCard from "@/components/card";
+import MyFacilityCard from "@/components/myFacilityCard";
+import BookCard from "@/components/bCard";
 
 const MyBooking = async () => {
   const session = await auth.api.getSession({
@@ -29,7 +32,7 @@ const MyBooking = async () => {
   return (
     <div>
       <h2 className="font-bold mt-4 text-[#647489] text-center text-2xl">My Added Facility</h2>
-      <div className="mx-auto justify-center">
+      {/* <div className="mx-auto justify-center">
         {getFacility.length > 0 ? (
           <div className="mx-auto mb-4 grid grid-cols-1  max-w-6xl justify-center">
             {getFacility.map((facility) => (
@@ -56,24 +59,10 @@ const MyBooking = async () => {
                 </div>
 
                 <div className="flex justify-between">
-                  {/* <Button
-                    className={
-                      "rounded-md bg-red-500 mx-2 my-2 text-white font-bold text-lg"
-                    }
-                    variant="outline"
-                  >
-                    Delete
-                  </Button> */}
+                  
                   <MyFacilityDelete userId={facility.userId} />
                   <MyFacilityEdit facility={facility} />
-                  {/* <Button
-                    className={
-                      "rounded-md w-24 bg-cyan-500 mx-2 my-2 text-white font-bold text-lg"
-                    }
-                    variant="outline"
-                  >
-                    Edit
-                  </Button> */}
+                  
                 </div>
               </div>
             ))}
@@ -83,7 +72,37 @@ const MyBooking = async () => {
             <h2 className="text-2xl my-auto mx-auto  text-center justify-center items-center font-bold">Not found any of your added facility!</h2>
           </div>
         )}
-      </div>
+      </div> */}
+
+
+      
+      {/* facility details card like  */}
+      {getFacility.length > 0 ? (
+        <div className="mx-auto mb-4 grid grid-cols-1  max-w-6xl justify-center">
+          {getFacility.map((facility) => (
+            <div key={facility._id}>
+             
+              <div className="mx-auto">
+                <div className="mx-auto mb-4 grid grid-cols-1  max-w-6xl justify-center">
+                    <div className="bg-slate-100  shadow-sm mx-4 rounded-md md:mx-2 my-2 px-2 py-2">
+                        <BookCard facility={facility} />
+                        <div className="flex my-2 justify-between">
+                            <MyFacilityDelete userId={facility.userId} />
+                            <MyFacilityEdit facility={facility} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="mx-auto my-auto flex justify-center items-centerd">
+          <h2 className="font-bold text-xl my-8">
+            Not found any of your added facility!
+          </h2>
+        </div>
+      )}
     </div>
   );
 };

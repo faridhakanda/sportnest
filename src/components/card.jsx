@@ -1,77 +1,13 @@
-import BookingCard from "@/components/bookingCard";
-import { BookingDelete } from "@/components/bookingDel";
-import { auth } from "@/lib/auth";
-//import { auth } from "@/lib/auth";
-//import { auth } from "@/lib/auth";
-
-import { getFacilityDetailsById } from "@/lib/data";
-import { Button } from "@heroui/react";
-import { headers } from "next/headers";
-//import { headers } from "next/headers";
-
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
-import { toast } from "react-toastify";
+import BookingCard from "./bookingCard";
+import Link from "next/link";
+import { Button } from "@heroui/react";
+import { BookingDelete } from "./bookingDel";
+import Image from "next/image";
 
-const FacilityDetailsById = async ({ params }) => {
-  const { id } = await params;
-  console.log("facility id: ", id);
-  //const facilityDetails = await getFallbackRouteParams()
-  const facility = await getFacilityDetailsById(id);
-  console.log(facility, "facility details!");
-
-  //   const { token } = await auth.api.getSession({
-  //     headers: await headers()
-  //   })
-  //   const tokenResponse = await auth.api.getToken({
-  //     headers: await headers()
-  //   })
-  //   const { token } = tokenResponse?.token;
-  //   const sessionData = await auth.api.getSession({
-  //     headers: await headers()
-  //   });
-  //   const token = sessionData?.session?.token;
-  //   if (!token) {
-  //     return (
-  //         toast.error('Token not valid!')
-  //     )
-  //   }
-  //   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilityDetails/${id}`, {
-  //     method: 'GET',
-  //     headers: {
-  //         'Content-Type': 'application/json',
-  //         authorization: `Bearer ${token}`
-  //     }
-  //   });
-  //   const facility = await res.json();
-
+const FacilityCard = ({ facility }) => {
   return (
     <div className="mx-auto">
-      {/* <div className="bg-blue-200 w-96 mx-auto my-2  rounded-md">
-        <Image
-          className="w-full rounded-ss-md rounded-se-md"
-          src={facility.facility_image}
-          alt={facility.facility_name}
-          width={400}
-          height={400}
-        />
-
-        <div className="px-2 py-2 ">
-          <h2>Facility name: {facility.facility_name}</h2>
-          <p>Price: ${facility.facility_price_per_hour}</p>
-          <p>Owner Name: {facility.userName}</p>
-          <p>Owner email: {facility.userEmail}</p>
-          <p>Facility description: {facility.facility_description}</p>
-        </div>
-        <BookingCard facility={facility} />
-        <Link className="" href={"/"}>
-          <Button className={"rounded-md"} variant="outline">
-            Go to Home
-          </Button>
-        </Link>
-      </div> */}
-
       {/* Facility Details like booking and my facility page */}
       <div className="mx-auto mb-4 grid grid-cols-1  max-w-6xl justify-center">
         <div className="bg-slate-100  shadow-sm mx-4 rounded-md md:mx-2 my-2 px-2 py-2">
@@ -139,8 +75,8 @@ const FacilityDetailsById = async ({ params }) => {
           </div>
 
           <div className="flex my-2 justify-between">
-            {/* <BookingDelete bookingId={facility._id} /> */}
-            <BookingCard facility={facility} />
+            <BookingDelete bookingId={facility._id} />
+            {/* <BookingCard facility={facility} />
             <Link className="" href={"/"}>
               <Button
                 className={"rounded-md bg-purple-600 text-white font-bold"}
@@ -148,7 +84,7 @@ const FacilityDetailsById = async ({ params }) => {
               >
                 Go to Home
               </Button>
-            </Link>
+            </Link> */}
           </div>
         </div>
         {/* ))} */}
@@ -157,4 +93,4 @@ const FacilityDetailsById = async ({ params }) => {
   );
 };
 
-export default FacilityDetailsById;
+export default FacilityCard;
