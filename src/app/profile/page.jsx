@@ -6,7 +6,8 @@ const MyProfilePage =  () => {
     const { data: session } = authClient.useSession();
     //const userName = user?.name;
     const user = session?.user;
-    //console.log(user, 'user profile')
+    console.log(session, 'user session');
+    console.log(user, 'user profile')
     return (
         <div className='text-center my-4'>
             <h2>My Profile</h2>
